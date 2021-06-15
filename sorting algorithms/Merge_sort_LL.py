@@ -14,6 +14,7 @@
 \=========================================================================================/
 """
 
+
 def mergesort(head):
 	if head.next == None:return head
 	current=head
@@ -25,12 +26,12 @@ def mergesort(head):
 		last_left.next=current
 		last_left=current
 		current=current.next
-		last_left.next=None
 		if current!=None:
 			last_right.next=current
 			last_right=current
 			current=current.next
-			last_right.next=None
+	last_left.next=None
+	last_right.next=None
 	left=mergesort(guardian_left.next)
 	right=mergesort(guardian_right.next)
 
