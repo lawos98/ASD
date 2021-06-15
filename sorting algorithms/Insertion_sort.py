@@ -26,3 +26,6 @@ def Insertion_sort(Array):
 			Array[index+1]=Array[index]
 			index-=1
 		Array[index+1]=value
+
+
+#end
