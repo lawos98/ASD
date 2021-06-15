@@ -1,11 +1,11 @@
 
 """
 /=========================================================================================\
-|Algorytm sortowania Babelkowego                                                          |
+|Algorytm sortowania przez wstawianie                                                     |
 |                                                                                         |
-|Polega na porównywaniu dwóch kolejnych elementów i zamianie ich kolejności               |
-|jeżeli zaburza ona porządek, w jakim się sortuje tablicę. Sortowanie kończy się,         |
-|gdy podczas kolejnego przejścia nie dokonano żadnej zmiany.                              |
+|Polega na Wyciąganiu elementu i porówaniu z kolejnymi elementami zbioru posortowanego,   |
+|póki nie napotkasz elementu równego lub elementu większego ,lub nie znajdziemy się       |
+|na początku/końcu zbioru uporządkowanego.                                                |
 |                                                                                         |
 |Złożoność czasowa :O(n^2)           Złożoność Pamięciowa O(1)                            |
 |                                                                                         |
@@ -15,11 +15,14 @@
 \=========================================================================================/
 """
 
-def Bubble_sort(Array):
-	Flag=1
-	while(Flag):
-		Flag=0
-		for index in range(1,len(Array)):
-			if Array[index]<Array[index-1]:
-				Array[index],Array[index-1]=Array[index-1],Array[index]
-				Flag=1
+
+
+def Insertion_sort(Array):
+	n=len(Array)
+	for i in range(1,n):
+		index=i-1
+		value=Array[i]
+		while(index>=0 and Array[index]>value):
+			Array[index+1]=Array[index]
+			index-=1
+		Array[index+1]=value
