@@ -2,11 +2,11 @@
 /=========================================================================================\
 |Algorytm sortowania przez wstawianie                                                     |
 |                                                                                         |
-|Polega na Wyciąganiu elementu i porówaniu z kolejnymi elementami zbioru posortowanego,   |
-|póki nie napotkasz elementu równego lub elementu większego ,lub nie znajdziemy się       |
-|na początku/końcu zbioru uporządkowanego.                                                |
+|Polega na rekurencyjnym sortowaniu danych,stosując metode (Kur)dziel i zwycieżaj         |
+|A mianowicie zastowanie sortowania przez scalanie na każdej z nich odzielnie chyba że    |
+|pozostał już tylko jeden element.Następnie połaczenie posortowanych ciągów               |
 |                                                                                         |
-|Złożoność czasowa :O(n^2)           Złożoność Pamięciowa O(1)                            |
+|Złożoność czasowa :O(n*log(n))           Złożoność Pamięciowa O(n)                       |
 |                                                                                         |
 |Wejscie:                            Wyjście:                                             |
 | -Tablica                            -Operacje na wcześniej podanej Tablicy              |
@@ -15,16 +15,27 @@
 """
 
 
+def mergesort(T):
+  if len(T)>1:
+    left=mergesort(T[0:len(T)//2])
+    right=mergesort(T[len(T)//2:len(T)])
 
-def Insertion_sort(Array):
-	n=len(Array)
-	for i in range(1,n):
-		index=i-1
-		value=Array[i]
-		while(index>=0 and Array[index]>value):
-			Array[index+1]=Array[index]
-			index-=1
-		Array[index+1]=value
+    l=r=i=0
+    while l<len(left) and r<len(right):
+      if left[l]<right[r]:
+        T[i]=left[l]
+        l+=1
+      else:
+        T[i]=right[r]
+        r+=1
+      i+=1
+    while l<len(left):
+        T[i]=left[l]
+        l+=1
+        i+=1
+    while r<len(right):
+        T[i]=right[r]
+        r+=1
+        i+=1
 
-
-#end
+  return T
