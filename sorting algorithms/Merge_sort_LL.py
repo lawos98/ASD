@@ -9,36 +9,48 @@
 |Złożoność czasowa :O(n*log(n))           Złożoność Pamięciowa O(n)                       |
 |                                                                                         |
 |Wejscie:                            Wyjście:                                             |
-| -Tablica                            -Operacje na wcześniej podanej Tablicy              |
+| -Początek listy odsyłaczowej        -Początek listy odsyłaczowej                        |
 |                                                                                         |
 \=========================================================================================/
 """
 
+def mergesort(head):
+	if head.next == None:return head
+	current=head
+	guardian_left=Node()
+	last_left=guardian_left
+	guardian_right=Node()
+	last_right=guardian_right
+	while current!=None:
+		last_left.next=current
+		last_left=current
+		current=current.next
+		last_left.next=None
+		if current!=None:
+			last_right.next=current
+			last_right=current
+			current=current.next
+			last_right.next=None
+	left=mergesort(guardian_left.next)
+	right=mergesort(guardian_right.next)
 
-def mergesort(T):
-	if len(T) > 1:
-		left = mergesort(T[0:len(T) // 2])
-		right = mergesort(T[len(T) // 2:len(T)])
+	guardian=Node()
+	last=guardian
+	while(left!=None and right!=None):
+		if left.value<right.value:
+			last.next=left
+			left=left.next
+		else:
+			last.next=right
+			right=right.next
+		last=last.next
+		last.next=None
+	if left==None:
+		last.next=right
+	else:
+		last.next=left
 
-		l = r = i = 0
-		while l < len(left) and r < len(right):
-			if left[l] < right[r]:
-				T[i] = left[l]
-				l += 1
-			else:
-				T[i] = right[r]
-				r += 1
-			i += 1
-		while l < len(left):
-			T[i] = left[l]
-			l += 1
-			i += 1
-		while r < len(right):
-			T[i] = right[r]
-			r += 1
-			i += 1
-
-	return T
+	return guardian.next
 
 
 #end
