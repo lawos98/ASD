@@ -1,8 +1,8 @@
 """
 /=========================================================================================\
-|Algorytm sortowania przez wstawianie                                                     |
+|Sortowania przez kopcowanie                                                              |
 |                                                                                         |
-|Algorytm sortowania przez kopcowanie składa się z dwóch faz. W pierwszej sortowane       |
+|Algorytm składa się z dwóch faz. W pierwszej sortowane                                   |
 |elementy reorganizowane są w celu utworzenia kopca. W drugiej zaś dokonywane             |
 |jest właściwe sortowanie.                                                                |
 |                                                                                         |
