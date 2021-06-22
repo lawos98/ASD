@@ -12,7 +12,7 @@
 |Złożoność czasowa :O(n*log(n))           Złożoność Pamięciowa O(log(n))(Tail Call)       |
 |                                                                                         |
 |Wejscie:                            Wyjście:                                             |
-| -Początek listy odsyłaczowej        -Początek listy odsyłaczowej                        |
+| -Tablica                            -Tablica                                            |
 |                                                                                         |
 \=========================================================================================/
 """
