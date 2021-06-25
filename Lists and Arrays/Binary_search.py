@@ -29,3 +29,6 @@ def binartSearch(Array, left, right, value):
         return binartSearch(Array, left, pivot - 1, value)
     else:
         return binartSearch(Array, pivot + 1, right, value)
+
+
+#end
