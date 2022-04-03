@@ -1,4 +1,5 @@
-<h1 align="center">Algorithms and data structures</h1>
+<img width="100%" src="assets/baner.gif">
+
 
 
 ## Description
